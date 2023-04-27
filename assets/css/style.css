@@ -1,0 +1,297 @@
+/* Define colors */
+:root {
+  --c-white: #fff;
+  --c-black: #1E2235;
+  --c-gray: #757575;
+  --c-bg: #f2f3fb;
+  --c-crimson: #FF4D5B;
+  --c-light-crimson: #FFE1E3;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Style for a (all links)*/
+a {
+  text-decoration: none;
+  color: var(--c-crimson);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Style for body element */
+body {
+  background: var(--c-bg);
+  height: 100%;
+  width: 100%;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* Set color for selected text */
+::selection {
+  color: var(--c-white);
+  background: var(--c-crimson);
+}
+
+/*style for header*/
+header {
+  width: 100%;
+  height: 3.6rem;
+  z-index: 1;
+  position: sticky;
+  top: 0;
+  background-color: var(--c-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.6rem;
+}
+
+/* Style for wimp logo */
+header .logo {
+  font-weight: 600;
+  font-size: 1.7rem;
+  color: #FF4D5B;
+}
+
+/* Style for submit form button*/
+header .submit-btn {
+  outline: none;
+  border: none;
+  padding: 0.6rem 2rem;
+  border-radius: 0.8rem;
+  font-size: 1rem;
+  user-select: none;
+  background-color: transparent;
+  border: 0.125rem solid var(--c-crimson);
+  color: var(--c-crimson);
+  transition: all 0.3s ease;
+}
+
+/* Style for submit form button on hover*/
+header .submit-btn:hover {
+  animation: shake 0.3s ease;
+  background-color: var(--c-crimson);
+  color: var(--c-white);
+}
+
+/*Style for small cards container*/
+.card-container {
+  width: 100%;
+  height: auto;
+  padding: 1.4rem 0.6rem;
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(4rem, 100%), 1fr));
+}
+
+/*Style for small cards*/
+.card {
+  width: 4rem;
+  height: 4rem;
+  display: grid;
+  place-content: center;
+  border-radius: 0.6rem;
+  font-size: 2rem;
+  user-select: none;
+  background-color: var(--c-white);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 0.25rem 0.375rem -0.0625rem rgba(0, 0, 0, 0.1), 0 0.125rem 0.25rem -0.0625rem rgba(0, 0, 0, 0.06);
+}
+
+/* Style for small card on hover */
+.card:hover {
+  animation: shake 0.3s ease;
+  background-color: var(--c-crimson);
+}
+
+/*Style for back-to-top button*/
+.scrollup {
+  height: 2.75rem;
+  width: 2.75rem;
+  border-radius: 0.25rem;
+  display: grid;
+  place-content: center;
+  z-index: 10;
+  position: fixed;
+  right: 1rem;
+  bottom: -20%;
+  color: var(--c-black);
+  background-color: var(--c-bg);
+  border: 0.125rem solid var(--c-gray);
+  transition: all 0.3s ease;
+}
+
+.scrollup svg {
+  fill: var(--c-black);
+  height: 0.8rem;
+  width: 0.8rem;
+}
+
+.scrollup:hover {
+  border: 0.125rem solid var(--c-crimson);
+  background-color: var(--c-light-crimson)
+}
+
+/* Show Scroll Up after 250px scroll*/
+.show-scroll {
+  bottom: 1.4rem;
+}
+
+
+/*shake animation*/
+@keyframes shake {
+
+  from,
+  to {
+    transform: scale(1, 1);
+  }
+
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+
+  75% {
+    transform: scale(0.95, 1.05);
+  }
+}
+
+
+
+/* Style for big pet card container*/
+.pet-container {
+  background: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  visibility: hidden;
+  display: grid;
+  place-content: center;
+  transition: all 0.1s ease;
+}
+
+/* Style for big pet card*/
+.pet-card {
+  width: 16rem;
+  height: 350px;
+  background-color: #fff;
+  border: 0.0625rem solid var(--c-gray);
+  box-shadow: 0 0.1875rem 0.5625rem rgba(0, 0, 0, 0.5);
+  border-radius: 0.6rem;
+  z-index: 999;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*Style to make big Card visible*/
+.model-open {
+  visibility: visible;
+}
+
+/* Style for big pet card visible effect*/
+.model-open .pet-card {
+  animation: zoomin 0.3s ease;
+}
+
+@keyframes zoomin {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Style for big pet card closing button*/
+.close-pet-card {
+  position: absolute;
+  right: 0.4rem;
+  top: 0.4rem;
+  z-index: 10000;
+  border: 0.125rem solid var(--c-gray);
+  border-radius: 100%;
+  display: grid;
+  place-content: center;
+  width: 1.875rem;
+  height: 1.875rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.close-pet-card:hover {
+  border-color: var(--c-crimson);
+}
+
+.close-pet-card svg {
+  stroke: var(--c-white);
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.close-pet-card:hover svg {
+  stroke: var(--c-crimson);
+}
+
+/* Style for big pet card animal image*/
+.pet-card img {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  object-fit: cover;
+}
+
+/* Style for big pet card all content*/
+.pet-card .content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0.9375rem;
+  color: white;
+  text-align: left;
+  background: linear-gradient(to bottom, transparent 0%, #1D1D1F 70%, black 100%);
+}
+
+/* Style for big pet card, animal owner details*/
+.pet-card .content p {
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 300;
+}
+
+/* Style for big pet card owner name*/
+.pet-card .pet-owner {
+  color: white;
+}
+ 
+/* Style for big pet card, animal name*/
+.pet-card .pet-name {
+  font-size: 1.8rem;
+  margin-bottom: 0.1875rem;
+  text-transform: uppercase;
+  color: #fff;
+}
