@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#061a32">
+
+  <!-- Page title -->
+  <title>Where is my pet?</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/jpg" href="./assets/favicon.png"/>
+
+  <!-- Custom stylesheet & font family -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed">
+  
+  <!-- Unpkg for card scroll reveal effect -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+
+<body>
+  
+  <!--HEADER CONTAINS LOGO AND SUBMIT-->
+  <header>
+   <div class="logo">Where is my pet?</div>
+   <button class="submit-btn" onclick="window.location.href='https://where-is-my-pet-form.netlify.app/'">Submit</button>
+  </header>
+
+  <!--SMALL CARDS CONTAINER-->
+  <section class="card-container">
+    <!--All small cards goes here-->
+  </section>
+
+  <!---- PET CARD CONTAINER----->
+  <div class="pet-container">
+    <!--Card-->
+    <div class="pet-card">
+      <div class="close-pet-card">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </div>
+      <img src="" alt="Pet image" class="pet-image">
+      <div class="content">
+        <h3 class="pet-name">Pet Name</h3>
+        <p>Owner: <a href="#" class="pet-owner">Your Name</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCROLL UP (back to top) -->
+  <div class="scrollup" id="scroll-up">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+      <path d="M201.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 173.3 54.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
+    </svg>
+    
+    <!-- Script file main site-->
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
