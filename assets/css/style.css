@@ -287,6 +287,11 @@ header .submit-btn:hover {
 .pet-card .pet-owner {
   color: white;
 }
+
+/* Style on hover of pet owner name*/
+.pet-owner:hover{
+  color: var(--c-crimson);
+}
  
 /* Style for big pet card, animal name*/
 .pet-card .pet-name {
