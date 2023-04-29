@@ -62,3 +62,11 @@ fetch('./assets/data.json')
   })
   .catch(error => console.log(error));
   
+// if pet owner link is blank then prevent a click
+function validateLink(event) {
+  if (!event.target.getAttribute("href")) {
+    event.preventDefault();
+    return false;
+  }
+  return true;
+}
