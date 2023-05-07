@@ -14,4 +14,4 @@ Welcome contributions from the open-source community to help make this project e
 
 ## Contact me
 
-If you have any questions, comments or concerns about this project, or would like to update or delete your pet's card please contact me by [`@rakeshid03`](https://rakeshid03.github.io/Personal-Portfolio/).
+If you have any questions, comments or concerns about this project, or would like to update or delete your pet's card please contact me by [`@rakeshid03`](https://rakeshid03.github.io/about-me/).
