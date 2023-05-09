@@ -18,56 +18,61 @@ jobs:
 
     steps:
 
-    - name: Checkout code
+      - name: Checkout code
 
-      uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
-    - name: Install dependencies
+        with:
 
-      run: |
+          fetch-depth: 0
 
-        sudo apt-get update
+      - name: Install dependencies
 
-        sudo apt-get install -y imagemagick
+        run: |
 
-    - name: Find new images
+          sudo apt-get update
 
-      id: find
+          sudo apt-get install -y imagemagick
 
-      run: |
+      - name: Find new images
 
-        last_commit=$(git rev-parse --short HEAD)
+        id: find
 
-        new_files=$(git diff --name-only --diff-filter=A $last_commit HEAD | grep -E 'assets/pet-image/.*\.(jpg|jpeg)')
+        run: |
 
-        echo "::set-output name=new_files::$new_files"
+          last_commit=$(git rev-parse --short HEAD)
 
-    - name: Compress images
+          new_files=$(git log --pretty=format: --name-only --diff-filter=A $last_commit..HEAD | grep -E 'assets/pet-image/.*\.(jpg|jpeg)')
 
-      run: |
+          echo "::set-output name=new_files::$new_files)"
 
-        for file in ${{ steps.find.outputs.new_files }}; do
+      - name: Compress images
 
-          convert "$file" -quality 80 "$file"
+        run: |
 
-        done
+          for file in ${{ steps.find.outputs.new_files }}; do
 
-      
+            mogrify -quality 80 "$file"
 
-    - name: Commit changes
+          done
 
-      run: |
+      - name: Commit changes
 
-        git config --global user.name "GitHub Actions"
+        run: |
 
-        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "GitHub Actions"
 
-        git commit -am "Compress (${{ github.sha }})'s image" || true
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-        git push
+          git commit -am "Compress (${{ github.sha }})'s image" || true
 
-      env:
+          git push
+
+        env:
 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+
 
 
