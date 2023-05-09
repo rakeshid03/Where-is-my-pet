@@ -1,44 +1,73 @@
 name: Image compression workflow
 
 on:
+
   push:
+
     paths:
+
       - 'assets/pet-image/*.jpg'
+
       - 'assets/pet-image/*.jpeg'
 
 jobs:
 
   compress-images:
+
     runs-on: ubuntu-latest
 
     steps:
 
     - name: Checkout code
+
       uses: actions/checkout@v2
 
     - name: Install dependencies
+
       run: |
+
         sudo apt-get update
+
         sudo apt-get install -y imagemagick
 
     - name: Find new images
+
       id: find
+
       run: |
-        last_commit=$(git rev-parse HEAD)
+
+        last_commit=$(git rev-parse --short HEAD)
+
         new_files=$(git diff --name-only --diff-filter=A $last_commit HEAD | grep -E 'assets/pet-image/.*\.(jpg|jpeg)')
+
         echo "::set-output name=new_files::$new_files"
 
     - name: Compress images
+
       run: |
+
         for file in ${{ steps.find.outputs.new_files }}; do
+
           convert "$file" -quality 80 "$file"
+
         done
+
       
+
     - name: Commit changes
+
       run: |
+
         git config --global user.name "GitHub Actions"
+
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
         git commit -am "Compress (${{ github.sha }})'s image" || true
+
         git push
+
       env:
+
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
