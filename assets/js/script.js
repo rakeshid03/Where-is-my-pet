@@ -31,7 +31,7 @@ setTimeout(function() {
 
     PetImage.src = "./assets/loading.gif";
 
-  }, 100);
+  }, 200);
 }
 closeButton.onclick = PetContainer.onclick = closeModel;
 // prevent the PetContainer from closing when the pet-card is clicked
