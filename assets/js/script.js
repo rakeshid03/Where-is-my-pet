@@ -27,6 +27,11 @@ const PetOwner = document.querySelector('.pet-owner');
 // Card close button
 function closeModel() {
   PetContainer.classList.remove('model-open');
+setTimeout(function() {
+
+    PetImage.src = "./assets/loading.gif";
+
+  }, 50);
 }
 closeButton.onclick = PetContainer.onclick = closeModel;
 // prevent the PetContainer from closing when the pet-card is clicked
