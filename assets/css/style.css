@@ -300,3 +300,20 @@ header .submit-btn:hover {
   text-transform: uppercase;
   color: #fff;
 }
+/***responsive for desktop***/
+
+@media only screen and (min-width: 1000px) {
+
+header {
+
+  padding: .2rem 1rem;
+
+}
+
+.card-container {
+
+  padding: 1.2rem 1rem;
+
+}
+
+}
