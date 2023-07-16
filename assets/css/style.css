@@ -300,20 +300,24 @@ header .submit-btn:hover {
   text-transform: uppercase;
   color: #fff;
 }
+
+/*Style for contact me*/
+.contact{
+  text-align: center;
+  width: 100%;
+  padding: 0.8rem 0;
+  position: relative;
+  bottom: 0;
+  font-size: 1.3rem;
+}
+
 /***responsive for desktop***/
-
 @media only screen and (min-width: 1000px) {
-
 header {
-
   padding: .2rem 1rem;
-
 }
 
 .card-container {
-
   padding: 1.2rem 1rem;
-
 }
-
 }
